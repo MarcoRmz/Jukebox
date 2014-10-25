@@ -123,9 +123,25 @@
             client_id: "67df025394fb58a59495a2b8f8573ddd"
             });
         </script>
-    
+
+    <!--scripts de Soundcloud -->
     <div class='soundcloud-div'>
-      Soundcloud -here-
     </div>
+    <script>
+        /*$(document).ready(function(){
+            SC.stream('/tracks/293',function(sound){
+                $(play-button).click(function(e){
+                    e.preventDefault();
+                    sound.play()
+                })
+            })
+        });*/
+
+        $(This).ready(function() {
+            SC.get('/tracks/293', function(track){
+                SC.oEmbed(track.permalink_url,document.getElementById('soundcloud-div'))
+            });
+        });
+    </script>
 </body>
 </html>
