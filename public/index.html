@@ -8,9 +8,9 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Jukebox</title>
-    <!-- Inicializacion de Soundcloud -->
-    <script src="http://connect.soundcloud.com/sdk.js"></script>
-    <script src="script.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <!--
+    <script src="script.js"></script> -->
 </head>
 <body>
     <div id="fb-root"></div>
@@ -32,6 +32,38 @@
       data-scope="publish_actions, email">
     </div>
     <!-- ADD user_events -->
+    <script src="//connect.soundcloud.com/sdk.js"></script>
+    <script>
+      SC.initialize({
+        client_id: "67df025394fb58a59495a2b8f8573ddd"
+        redirect_uri: 'http://jukebox.parseapp.com/callback.html'
+      });
+
+      // initiate auth popup
+       $("#connect").live("click", function(){
+          SC.connect(function(){
+            SC.get("/me", function(me){
+              $("#username").text(me.username);
+              $("#description").val(me.description);
+            });
+          });
+        });
+
+      SC.stream("/tracks/293", function(sound){
+        sound.play();
+      });
+
+      $("#loadTracks").live("click", function(){
+        SC.get("/tracks", {limit: 1}, function(tracks){
+          var track = tracks[0];
+          SC.oEmbed(track.uri, document.getElementById("track"));
+        });
+      });
+    </script>
+    <button class="big button" id="connect" value="Connect with SoundCloud"></button>
+    <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+    <div id="track"></div>
+
     <script>
           var Parse = require('parse-1.2.8.js');
           // This is called with the results from from FB.getLoginStatus().
@@ -116,7 +148,6 @@
         });
     </script>
     
-    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
@@ -124,7 +155,8 @@
 
 
     <!--scripts de Soundcloud -->
-    <div id='soundcloud-div'>
-    </div>
+    <ul id='soundcloud-div'>
+    </ul>
+
 </body>
 </html>
