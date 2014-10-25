@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Jukebox": {
+            "applicationId": "GTjpoxopLzGRl22uQERqDTZkFwhjWZjlvWKNP6xI", 
+            "masterKey": "0CZKQ3s6DvR1TdQxPxHeUzkL5h7wMrlu8loSDisu"
+        }, 
+        "_default": {
+            "link": "Jukebox"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.1"
+    }
+}
