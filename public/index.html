@@ -24,11 +24,11 @@
       data-show-faces="false"
       data-auto-logout-link="true"
       onlogin="checkLoginState();"
-      data-width="200"
+      data-width="400"
       data-max-rows="1"
-      data-scope="publish_actions">
+      data-scope="publish_actions, user_events, email">
     </div>
-    
+
     <script>
           var Parse = require('parse-1.2.8.js');
           // This is called with the results from from FB.getLoginStatus().
@@ -96,7 +96,7 @@
           });
         }
 
-        Parse.FacebookUtils.logIn("name, email, user_friends, user_events",{
+        Parse.FacebookUtils.logIn("publish_actions, user_events, email",{
           success: function(user) {
             if (!user.existed()) {
               alert("User signed up and logged in through Facebook!");
