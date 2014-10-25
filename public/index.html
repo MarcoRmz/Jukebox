@@ -5,7 +5,7 @@
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Jukebox</title>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <!-- Inicializacion de Soundcloud -->
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 
@@ -131,6 +131,8 @@
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me/events/attending', function(response) {
                 if (response && !response.error) {
+                  console.log(event.name);
+                  console.log("hi");
                   $('#events').append($('<li></li>').html(event.name));
                 }
             });
