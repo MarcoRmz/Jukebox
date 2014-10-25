@@ -58,14 +58,14 @@
       });
     </script>
 
-    <script>
+    <!--<script>
       $("#searchTracks").live("click", function(){
         // find tracks
         SC.get('/tracks', { q: document.getElementById('searchField').value }, function(tracks) {
           console.log(tracks);
         });
       });
-    </script>
+    </script>-->
 
     <script>
       // This is called with the results from from FB.getLoginStatus().
@@ -246,7 +246,6 @@
 -->
 
     <!--html y css-->
-
     <div id="wrapper">
     <p class="title_name">Jukebox</p>
     </div>
@@ -286,14 +285,29 @@
       
 
       <div id="searchbox">
-        <input name="searchTxt" type="text" maxlength="512" id="searchTxt" class="searchField"/>
         <form>
         Search SoundCloud:
         <input type="search" name="searchTracks">
         </form>
+        <script type="text/javascript">
+          if(document.getElementsByTagName["searchTracks"] == "musica"){
+            $(document).ready(function(){
+              $('cancion1').toggleClass('agregarMusica')
+            })
+          }
+        </script>
+        <div class="agregarMusica">
+            <button class="cancion1">
+              Cancion 1
+            </button>
+        </div>
 
-        <div id="search">
-        <input></div>
+        <style type="text/css">
+          .cancion1 {
+            font-size: 120%;
+            color: red;
+          }
+        </style>
       </div>
     </div>
 </body>
