@@ -52,15 +52,22 @@ body {
 #wrapper{
     height: 50%;
     background: #373B44;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #sidebar{
+    padding-top: 14px;
     float: left;
+    height: 100%;
     width: 100px;
 }
 
 #content{
-    margin-left: 100px; 
+    margin-left: 100px;
+    height: 100%; 
 }
 
 .button-group{
