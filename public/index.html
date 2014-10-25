@@ -35,7 +35,10 @@
         SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
           console.log('oEmbed response: ' + oEmbed);
         });
+        document.getElementById("track").innerHTML = '<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56490285&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>';
+        /*
         $('#track').append('<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56490285&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>');
+        */
         SC.get('/playlists/56490285', function(playlist) {
           for (var i = 0; i < playlist.tracks.length; i++) {
             $('#results').append($('<li></li>').html(playlist.tracks[i].title));
@@ -50,7 +53,7 @@
         SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
           console.log('oEmbed response: ' + oEmbed);
         });
-        $('#track').append('<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56545453&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>');
+        document.getElementById("track").innerHTML = '<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56545453&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>';
         SC.get('/playlists/56545453', function(playlist) {
           for (var i = 0; i < playlist.tracks.length; i++) {
             $('#results').append($('<li></li>').html(playlist.tracks[i].title));
@@ -65,6 +68,7 @@
         SC.connect(function() {
           SC.get('/me/playlists', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
+            $('#results').append($('<li></li>').html(tracks.title));
           });
         });
       }
@@ -76,6 +80,7 @@
         SC.connect(function() {
           SC.get('/me/playlists', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
+            $('#results').append($('<li></li>').html(tracks.title));
           });
         });
       }
@@ -87,6 +92,7 @@
         SC.connect(function() {
           SC.get('/me/playlists', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
+            $('#results').append($('<li></li>').html(tracks.title));
           });
         });
       }
