@@ -218,7 +218,7 @@
     <style type="text/css">
       #events{
         list-style-type: none;
-        font-size: 24px;
+        font-size: 18px;
         font-family: helvetica;
       }
     </style>
@@ -235,13 +235,22 @@
         <button id="loadTracks">Load Playlist</button>
         </li>
       </ul>
+      <h1>Now Playing</h1>
       <div id="track"></div>
+      <br>
+      <h1>Queue</h1>
       <ul id="results">
 
-      </ul>
-      
+      <style type="text/css">
+        #results{
+          font-size: 16px;
+          list-style-type: none;
+        }
+      </style>
 
-      <div id="searchbox">
+      </ul>
+
+      <!--<div id="searchbox">
         <form>
         Search SoundCloud:
         <input type="search" name="searchTracks">
@@ -253,7 +262,7 @@
             $('agregarMusica').toggleClass('cancion1');
           });
         });
-        </script>
+        </script> -->
 
         <div class="agregarMusica">
             <br>
