@@ -34,21 +34,20 @@
     <!-- ADD user_events -->
     <script src="//connect.soundcloud.com/sdk.js"></script>
     <script>
-      SC.initialize({
-        client_id: "67df025394fb58a59495a2b8f8573ddd"
-        redirect_uri: 'http://jukebox.parseapp.com/callback.html'
+    // initialize client with app credentials
+    SC.initialize({
+      client_id: '67df025394fb58a59495a2b8f8573ddd',
+      redirect_uri: 'http://jukebox.parseapp.com/callback.html'
+    });
+
+    // initiate auth popup
+    SC.connect(function() {
+      SC.get('/me', function(me) { 
+        alert('Hello, ' + me.username); 
       });
-
-      // initiate auth popup
-       $("#connect").live("click", function(){
-          SC.connect(function(){
-            SC.get("/me", function(me){
-              $("#username").text(me.username);
-              $("#description").val(me.description);
-            });
-          });
-        });
-
+    });
+    </script>
+    <script>
       SC.stream("/tracks/293", function(sound){
         sound.play();
       });
