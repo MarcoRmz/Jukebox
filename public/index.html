@@ -8,6 +8,9 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Jukebox</title>
+    <!-- Inicializacion de Soundcloud -->
+    <script type="text/javascript" src="https://connect.soundcloud.com/sdk.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div id="fb-root"></div>
@@ -119,32 +122,9 @@
         app.initialize();
     </script>
 
-    <!-- Inicializacion de Soundcloud -->
-    <script src="//connect.soundcloud.com/sdk.js"></script>
-        <script>
-            SC.initialize({
-            client_id: "67df025394fb58a59495a2b8f8573ddd"
-            });
-        </script>
 
     <!--scripts de Soundcloud -->
-    <div class='soundcloud-div'>
-    </div>
-    <script>
-        /*$(document).ready(function(){
-            SC.stream('/tracks/293',function(sound){
-                $(play-button).click(function(e){
-                    e.preventDefault();
-                    sound.play()
-                })
-            })
-        });*/
-
-        $(document).ready(function() {
-            SC.get('/tracks/293', function(track){
-                SC.oEmbed(track.permalink_url,document.getElementById('soundcloud-div'))
-            });
-        });
-    </script>
+    <ul id='soundcloud-div'>
+    </ul>
 </body>
 </html>
