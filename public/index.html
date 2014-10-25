@@ -218,8 +218,18 @@
     <style type="text/css">
       #events{
         list-style-type: none;
+        font-size: 24px;
+        font-family: helvetica;
+      }
+
+      h3{
         font-size: 18px;
         font-family: helvetica;
+      }
+
+      #evento{
+        font-family: helvetica;
+        font-size: 18px;
       }
     </style>
 
@@ -227,11 +237,11 @@
       <h1>Events</h1>
       <ul id="events">
         <li>
-        <p>Event: </p> <h3>Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
+        <p id="evento">Event: </p> <h3>Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
         <button id="loadTr">Load Playlist</button>
         </li>
         <li>
-        <p>Event: </p> <h3>Trick or Treat</h3>
+        <p id="evento">Event: </p> <h3>Trick or Treat</h3>
         <button id="loadTracks">Load Playlist</button>
         </li>
       </ul>
@@ -266,7 +276,6 @@
         </script> -->
         <h1>Add Songs</h1>
         <div class="agregarMusica">
-            <br>
             <button class="cancion1" id="track1">
               <img id="img_can" src="img/mbuble.jpg"></img><p id="nom_can">Michael Buble: Haven't Met You Yet</p>
             </button>
@@ -285,9 +294,6 @@
           #nom_can{
             position:relative; 
             up:20px;
-          }
-          p{
-            font-variant: cursive;
           }
 
           #img_can{
