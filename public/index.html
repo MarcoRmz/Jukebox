@@ -140,66 +140,63 @@
 
     <!--html y css-->
 
-<div id="wrapper">
-  <p class="title_name">Jukebox</p>
-  <div id="sidebar">
-    <br>
-    <ul class="stack button-group">
-      <button class="Home" id="buttongroup1">
-        Home
-      </button>
-      <br>
-      <button class="Play-button" id="buttongroup1">
-        Play
-      </button>
-      <br>
-      <button class="Queue" id="buttongroup1">
-        Queue
-      </button>
-      <br>
-      <button class="Browse" id="buttongroup1">
-        Browse
-      </button>
-      <br>
-      <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="wrapper">
+      <p class="title_name">Jukebox</p>
+      <nav id="sidebar">
+        <br>
+        <ul class="stack button-group">
+          <a class="Home" id="buttongroup1" href="#main">
+            Home
+          </a>
+          <br>
+          <a class="Play-button" id="buttongroup1" href="#track">
+            Play
+          </a>
+          <br>
+          <a class="Queue" id="buttongroup1" href="#content/#page_2">
+            Queue
+          </a>
+          <br>
+          <a class="Browse" id="buttongroup1" href="page">
+            Browse
+          </a>
+          <br>
+          <div id="fb-root">
+          </div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div
-      class="fb-login-button"
-      data-show-faces="false"
-      data-auto-logout-link="true"
-      onlogin="checkLoginState();"
-      data-width="400"
-      data-max-rows="1"
-      data-scope="publish_actions, email">
-    </div>
-    </ul>
-  </div>
-  <div id="content">
-    <div id="track"></div>
-    <div class="pages">
-      <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
-      <ul id="results">
-
+          <div
+          class="fb-login-button"
+          data-show-faces="false"
+          data-auto-logout-link="true"
+          onlogin="checkLoginState();"
+          data-width="400"
+          data-max-rows="1"
+          data-scope="publish_actions, email">
+          </div>
       </ul>
+    </nav>
+  </div>
+
+    <div id="content">
       <div id="track"></div>
-    </div>
-    <div class="page_2">
-      Prueba
+      <div id="page">
+        <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+        <ul id="results">
+
+        </ul>
+        <div id="track"></div>
+      </div>
+      <div id="page_2">
+        Prueba
+      </div>
     </div>
   </div>
-</div>
-
-<script type="text/javascript">
-  $('Home').click(function(){
-    $("page_2").toggleClass("#content");
-  });
-</script>
 </body>
 </html>
