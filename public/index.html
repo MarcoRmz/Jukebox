@@ -240,31 +240,32 @@
         <div class="agregarMusica">
             <br>
             <button class="cancion1" id="track1">
-              <p>Michael Buble: Haven't Met You Yet</p>
+              <p id="nom_can">Michael Buble: Haven't Met You Yet</p>
             </button>
             <br>
             
             <button class="cancion1">
-<<<<<<< HEAD
-               <img src="img/maroon1.jpg"></img><p>Maroon 5: Sunday Morning</p>
-=======
-               <img src="img/maroon1.jpg" style="width=50px; height=auto;"></img><p>Maroon 5: Sunday Morning</p>
-
->>>>>>> origin/master
+               <img src="img/maroon1.jpg"></img><p id="nom_can">Maroon 5: Sunday Morning</p>
             </button>
             <br>
             <button class="cancion1" id="track3">
-             <p>Maroon 5: Moves Like Jagger</p>
+             <p id="nom_can">Maroon 5: Moves Like Jagger</p>
             </button>
         </div>
 
         <style type="text/css">
+          #nom_can{
+            position:relative; 
+            up:20px;
+          }
           p{
             font-variant: cursive;
           }
 
           img{
-            position: left;
+            float: left;
+            position: relative;
+            left: -10px;
             height: 50px;
             width: auto;
           }
