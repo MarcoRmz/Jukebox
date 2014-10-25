@@ -31,9 +31,12 @@
     </script>
     <script>
       $("#loadTracks").live("click", function(){
+        SC.stream("/playlists/56490285", function(sound){
+          sound.play();
+        });
         SC.get('/playlists/56490285', function(playlist) {
           for (var i = 0; i < playlist.tracks.length; i++) {
-            console.log(playlist.tracks[i].length);
+            $('#results').append($('<li></li>').html(playlist.tracks[i].title));
           }
         });
       });
@@ -174,6 +177,9 @@
   </div>
   <div id="content">
     <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+    <ul id="results">
+
+    </ul>
     <div id="track"></div>
   </div>
 </div>
