@@ -31,10 +31,6 @@
     </script>
     <script>
       $("#loadTracks").live("click", function(){
-        /*
-        SC.stream("/tracks/295", function(sound){
-          sound.play();
-        }); */
         var track_url = 'http://api.soundcloud.com/playlists/56490285';
         SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
           console.log('oEmbed response: ' + oEmbed);
@@ -48,6 +44,14 @@
       });
     </script>
 
+    <script>
+      $("#searchTracks").live("click", function(){
+        // find tracks
+        SC.get('/tracks', { q: 'buskers' }, function(tracks) {
+          console.log(tracks);
+        });
+      });
+    </script>
 
     <script>
           var Parse = require('parse-1.2.8.js');
