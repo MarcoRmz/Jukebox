@@ -81,11 +81,7 @@ body {
     list-style-type: none;
 }
 
-#opciones{
-    display: inline;  
-}
-
-#menu{
+li{
     display: inline;
 }
 
