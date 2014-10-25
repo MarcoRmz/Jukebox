@@ -59,7 +59,7 @@
     </script>
 
     <script>
-      $("#loadTracks2").live("click", function(){
+      $("#loadTr").live("click", function(){
         var track_url = 'http://api.soundcloud.com/playlists/56545453';
         SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
           console.log('oEmbed response: ' + oEmbed);
@@ -291,12 +291,13 @@
       <h1>Events</h1>
       <ul id="events">
         <li>
-        <h3>Event: Pre-Hackathon Workshop at ITESM Monterrey</h3>
-        <button id="loadTracks">Load Playlist</button>
+        <p>Event: </p> <h3>Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
+        <input type="button" id="loadTr" class="button big" value="Load Playlist" />
         </li>
         <li>
-        <h3>Event: Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
-        <button id="loadTracks2">Load Playlist</button>
+        <p>Event: </p> <h3>Trick or Treat</h3>
+        <input type="button" id="loadTracks" class="button big" value="Load Playlist" />
+>>>>>>> origin/master
         </li>
       </ul>
       <div id="track"></div>
@@ -311,10 +312,6 @@
         <input type="search" name="searchTracks">
         </form>
 
-        <button id="searcher">
-          HARDCODE!
-        </button>
-
         <script type="text/javascript">
         $(document).ready(function(){
           $('searcher').click(function(){
@@ -324,8 +321,17 @@
         </script>
 
         <div class="agregarMusica">
+            <p>Michael Buble: Haven't Met You Yet</p>
             <button class="cancion1">
-              Cancion 1
+              Add
+            </button>
+            <p>Maroon 5: Sunday Morning</p>
+            <button class="cancion1">
+              Add
+            </button>
+            <p>Maroon 5: Sugar</p>
+            <button class="cancion1">
+              Add
             </button>
         </div>
 
