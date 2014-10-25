@@ -72,7 +72,7 @@
 
     <script>
       $("#track1").live("click", function(){
-        var tracks = [71199929];
+        var tracks = [154675494, 164661027, 138084493, 123105777, 123036796, 71199929];
         SC.connect(function() {
           SC.get('/playlists/56490285', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
