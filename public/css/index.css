@@ -7,7 +7,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#73C8A9; 
+    background-color:#DEE1B6;  
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -20,7 +20,7 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:#73C8A9 no-repeat center top; /* 170px x 200px */
+    background:#DEE1B6 no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -46,13 +46,14 @@ body {
     font-family: 'Lobster', cursive;
     font-size: 72px;
     text-align: left;
+    text-shadow: 3px 4px 5px #000;
     color: white;
     padding-left: 20px;
 }
 
 #wrapper{
     height: 100px;
-    background: #373B44;
+    background: #373B44; /*#73C8A9*/
 }
 
 .title_name{
