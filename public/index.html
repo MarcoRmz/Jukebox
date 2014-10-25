@@ -183,7 +183,7 @@
   </div>
   <div id="content">
     <div id="track"></div>
-    <div class="page_1">
+    <div class="pages">
       <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
       <ul id="results">
 
@@ -198,7 +198,7 @@
 
 <script type="text/javascript">
   $('Home').click(function(){
-    ('#content').toggle("page_2");
+    $("page_2").toggleClass("#content");
   });
 </script>
 </body>
