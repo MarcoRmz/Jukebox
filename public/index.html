@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Jukebox</title>
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
-    <script type="text/javascript" charset="utf-8" src="js/ui.min.js"></script>
     <!-- Inicializacion de Soundcloud -->
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 
@@ -62,7 +61,7 @@
     <script>
       $("#searchTracks").live("click", function(){
         // find tracks
-        SC.get('/tracks', { q: 'buskers' }, function(tracks) {
+        SC.get('/tracks', { q: document.getElementById('searchField').value }, function(tracks) {
           console.log(tracks);
         });
       });
@@ -131,7 +130,7 @@
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me/events', function(response) {
                 if (response && !response.error) {
-                  alert("works");
+                  $('#events').append($('<li></li>').html(events));
                 }
             });
           }
@@ -185,6 +184,10 @@
     </div>
 
     <div id="content">
+      <h1>Events</h1>
+      <ul id="events">
+
+      </ul>
       <input type="button" id="loadTracks" class="button big" value="Load Playlist" />
       <ul id="results">
 
@@ -192,7 +195,11 @@
       <div id="track"></div>
     </div>
     <div id="search">
-      <input></div>
+      <input name="searchTxt" type="text" maxlength="512" id="searchTxt" class="searchField"/>
+      <form>
+        Search SoundCloud:
+        <input type="search" name="searchTracks">
+      </form>
     </div>
 </body>
 </html>
