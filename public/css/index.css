@@ -87,9 +87,6 @@ body {
     text-align: center;
     padding: 20px;
     text-size: 32px;
-    transition: width: .5s;
-    -webkit-transition: width .5s;
-    -moz-transition: width .5s;
 }
 
 #buttongroup1{
