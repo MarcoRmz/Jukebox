@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Jukebox</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <!-- Inicializacion de Soundcloud -->
-    <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <title>Jukebox</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <!-- Inicializacion de Soundcloud -->
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
 
-    <!-- Lobster font -->
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <!-- Lobster font -->
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-    <script src="//connect.soundcloud.com/sdk.js"></script>
-    <script>
+  <script src="//connect.soundcloud.com/sdk.js"></script>
+  <script>
     // initialize client with app credentials
     SC.initialize({
       client_id: '67df025394fb58a59495a2b8f8573ddd',
@@ -28,107 +28,106 @@
         //loadEventsAPI();
       });
     });
-    </script>
-    <script>
-      $("#loadTracks").live("click", function(){
-        var track_url = 'http://api.soundcloud.com/playlists/56490285';
-        SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
-          console.log('oEmbed response: ' + oEmbed);
-        });
-        document.getElementById("track").innerHTML = '<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56490285&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>';
+  </script>
+  <script>
+    $("#loadTracks").live("click", function(){
+      var track_url = 'http://api.soundcloud.com/playlists/56490285';
+      SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
+        console.log('oEmbed response: ' + oEmbed);
+      });
+      document.getElementById("track").innerHTML = '<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56490285&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>';
         /*
         $('#track').append('<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56490285&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>');
         */
         SC.get('/playlists/56490285', function(playlist) {
           var res = "";
-            for (var i = 0; i < playlist.tracks.length; i++) {
-              res += "<li>" + playlist.tracks[i].title + "</li>";
+          for (var i = 0; i < playlist.tracks.length; i++) {
+            res += "<li>" + playlist.tracks[i].title + "</li>";
               //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
             }
             //$('#results').append(res);
             document.getElementById("results").innerHTML = res;
-        });
+          });
       });
-    </script>
+</script>
 
-    <script>
-      $("#loadTr").live("click", function(){
-        var track_url = 'http://api.soundcloud.com/playlists/56545453';
-        SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
-          console.log('oEmbed response: ' + oEmbed);
-        });
-        document.getElementById("track").innerHTML = '<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56545453&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>';
+<script>
+  $("#loadTr").live("click", function(){
+    var track_url = 'http://api.soundcloud.com/playlists/56545453';
+    SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
+      console.log('oEmbed response: ' + oEmbed);
+    });
+    document.getElementById("track").innerHTML = '<iframe width="100%" height="170" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/56545453&amp;color=00aabb&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=true"></iframe>';
+    SC.get('/playlists/56545453', function(playlist) {
+      var res = "";
+      for (var i = 0; i < playlist.tracks.length; i++) {
+        res += "<li>" + playlist.tracks[i].title + "</li>";
+              //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
+            }
+            //$('#results').append(res);
+            document.getElementById("results").innerHTML = res;
+          });
+  });
+</script>
+
+<script>
+  var tracks = [154675494, 164661027, 138084493, 123105777, 123036796, 71199929];
+  SC.connect(function() {
+    SC.get('/playlists/56490285', { limit: 1 }, function(playlist) {
+      SC.put(playlist.uri, { playlist: { tracks: tracks } });
+      SC.get('/playlists/56490285', function(playlist) {
+        var res = "";
+        for (var i = 0; i < playlist.tracks.length; i++) {
+          res += "<li>" + playlist.tracks[i].title + "</li>";
+              //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
+            }
+            res += "Michael Buble: Haven't Met You Yet";
+            document.getElementById("results").innerHTML = res;
+          });
+    });
+  });
+}
+</script>
+
+<script>
+  $("#track2").live("click", function(){
+    var tracks = [5774716];
+    SC.connect(function() {
+      SC.get('/playlists/56490285', { limit: 1 }, function(playlist) {
+        SC.put(playlist.uri, { playlist: { tracks: tracks } });
+        SC.get('/playlists/56490285', function(playlist) {
+          var res = "";
+          for (var i = 0; i < playlist.tracks.length; i++) {
+            res += "<li>" + playlist.tracks[i].title + "</li>";
+              //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
+            }
+            //$('#results').append(res);
+            document.getElementById("results").innerHTML = res;
+          });
+      });
+    });
+  }
+</script>
+
+<script>
+  $("#track3").live("click", function(){
+    var tracks = [19504262];
+    SC.connect(function() {
+      SC.get('/playlists/56545453', { limit: 1 }, function(playlist) {
+        SC.put(playlist.uri, { playlist: { tracks: tracks } });
         SC.get('/playlists/56545453', function(playlist) {
           var res = "";
-            for (var i = 0; i < playlist.tracks.length; i++) {
-              res += "<li>" + playlist.tracks[i].title + "</li>";
+          for (var i = 0; i < playlist.tracks.length; i++) {
+            res += "<li>" + playlist.tracks[i].title + "</li>";
               //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
             }
             //$('#results').append(res);
             document.getElementById("results").innerHTML = res;
-        });
+          });
       });
-    </script>
-
-    <script>
-      $("#track1").live("click", function(){
-        var tracks = [154675494, 164661027, 138084493, 123105777, 123036796, 71199929];
-        SC.connect(function() {
-          SC.get('/playlists/56490285', { limit: 1 }, function(playlist) {
-            SC.put(playlist.uri, { playlist: { tracks: tracks } });
-            SC.get('/playlists/56490285', function(playlist) {
-            var res = "";
-            for (var i = 0; i < playlist.tracks.length; i++) {
-              res += "<li>" + playlist.tracks[i].title + "</li>";
-              //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
-            }
-            //$('#results').append(res);
-            document.getElementById("results").innerHTML = res;
-            });
-          });
-        });
-      }
-    </script>
-
-    <script>
-      $("#track2").live("click", function(){
-        var tracks = [5774716];
-        SC.connect(function() {
-          SC.get('/playlists/56490285', { limit: 1 }, function(playlist) {
-            SC.put(playlist.uri, { playlist: { tracks: tracks } });
-            SC.get('/playlists/56490285', function(playlist) {
-            var res = "";
-            for (var i = 0; i < playlist.tracks.length; i++) {
-              res += "<li>" + playlist.tracks[i].title + "</li>";
-              //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
-            }
-            //$('#results').append(res);
-            document.getElementById("results").innerHTML = res;
-            });
-          });
-        });
-      }
-    </script>
-
-    <script>
-      $("#track3").live("click", function(){
-        var tracks = [19504262];
-        SC.connect(function() {
-          SC.get('/playlists/56545453', { limit: 1 }, function(playlist) {
-            SC.put(playlist.uri, { playlist: { tracks: tracks } });
-            SC.get('/playlists/56545453', function(playlist) {
-            var res = "";
-            for (var i = 0; i < playlist.tracks.length; i++) {
-              res += "<li>" + playlist.tracks[i].title + "</li>";
-              //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
-            }
-            //$('#results').append(res);
-            document.getElementById("results").innerHTML = res;
-            });
-          });
-        });
-      }
-    </script>
+    });
+  }
+</script>
 
     <!--<script>
       $("#searchTracks").live("click", function(){
@@ -154,12 +153,12 @@
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.
           document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
+          'into this app.';
         } else {
           // The person is not logged into Facebook, so we're not sure if
           // they are logged into this app or not.
           document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
+          'into Facebook.';
         }
       }
 
@@ -173,17 +172,17 @@
       }
 
       window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1556411531239729',
+        FB.init({
+          appId      : '1556411531239729',
         cookie     : true,  // enable cookies to allow the server to access 
                             // the session
         xfbml      : true,  // parse social plugins on this page
         version    : 'v2.1' // use version 2.1
       });
 
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
 
       };
 
@@ -203,28 +202,28 @@
         FB.api('/me/events', function(response) {
           console.log('Successful login for: ' + response.name);
           document.getElementById('events').innerHTML =
-            'Event: ' + response.name + ' ID: ' + response.id;
+          'Event: ' + response.name + ' ID: ' + response.id;
         });
       }
     </script>
 
     <!--html y css-->
     <div id="wrapper">
-    <p class="title_name"><img src="icon.png"><img>Jukebox</p>
+      <p class="title_name"><img src="icon.png"><img>Jukebox</p>
     </div>
-      <!--Left Side Menu Navigation bar-->
+    <!--Left Side Menu Navigation bar-->
     <div id="page_full">
       <div id="fb-root">
-      <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
       </div>
 
-    <div
+      <div
       class="fb-login-button"
       data-show-faces="false"
       data-auto-logout-link="true"
@@ -233,45 +232,45 @@
       data-max-rows="1"
       data-scope="public_profile, publish_actions, email, user_events">
     </div>
-    </div>
+  </div>
 
-    <style type="text/css">
-      #events{
-        list-style-type: none;
-        font-size: 24px;
-        font-family: helvetica;
-      }
+  <style type="text/css">
+    #events{
+      list-style-type: none;
+      font-size: 24px;
+      font-family: helvetica;
+    }
 
-      h3{
-        font-size: 18px;
-        font-family: helvetica;
-      }
+    h3{
+      font-size: 18px;
+      font-family: helvetica;
+    }
 
-      #evento{
-        font-family: helvetica;
-        font-size: 18px;
-      }
-    </style>
+    #evento{
+      font-family: helvetica;
+      font-size: 18px;
+    }
+  </style>
 
-    <div id="content">
-      <h1>Events</h1>
-      <ul id="events">
-        <li>
+  <div id="content">
+    <h1>Events</h1>
+    <ul id="events">
+      <li>
         <p id="evento">Event: </p> <h3>Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
         <button id="loadTr">Load Playlist</button>
-        </li>
-        <li>
+      </li>
+      <li>
         <p id="evento">Event: </p> <h3>Trick or Treat</h3>
         <button id="loadTracks">Load Playlist</button>
-        </li>
-      </ul>
-      <h1>Now Playing</h1>
-      <div id="track"></div>
+      </li>
+    </ul>
+    <h1>Now Playing</h1>
+    <div id="track"></div>
+    <br>
+    <h1>Queue</h1>
+    <ul id="results">
       <br>
-      <h1>Queue</h1>
-      <ul id="results">
-      <br>
-      </ul>
+    </ul>
 
       <!--<div id="searchbox">
         <form>
@@ -285,38 +284,38 @@
             $('agregarMusica').toggleClass('cancion1');
           });
         });
-        </script> -->
-        <h1>Add Songs</h1>
-        <div class="agregarMusica">
-            <button class="cancion1" id="track1">
-              <img id="img_can" src="img/mbuble.jpg"></img><p id="nom_can">Michael Buble: Haven't Met You Yet</p>
-            </button>
-            <br>
-            
-            <button class="cancion1">
-               <img id="img_can" src="img/maroon1.jpg"></img><p id="nom_can">Maroon 5: Sunday Morning</p>
-            </button>
-            <br>
-            <button class="cancion1" id="track3">
-             <img id="img_can" src="img/maroon2.jpg"></img><p id="nom_can">Maroon 5: Moves Like Jagger</p>
-            </button>
-        </div>
+      </script> -->
+      <h1>Add Songs</h1>
+      <div class="agregarMusica">
+        <button class="cancion1" id="track1">
+          <img id="img_can" src="img/mbuble.jpg"></img><p id="nom_can">Michael Buble: Haven't Met You Yet</p>
+        </button>
+        <br>
 
-        <style type="text/css">
-          #nom_can{
-            position:relative; 
-            up:20px;
-          }
+        <button class="cancion1">
+         <img id="img_can" src="img/maroon1.jpg"></img><p id="nom_can">Maroon 5: Sunday Morning</p>
+       </button>
+       <br>
+       <button class="cancion1" id="track3">
+         <img id="img_can" src="img/maroon2.jpg"></img><p id="nom_can">Maroon 5: Moves Like Jagger</p>
+       </button>
+     </div>
 
-          #img_can{
-            float: left;
-            position: relative;
-            left: -10px;
-            height: 50px;
-            width: auto;
-          }
-        </style>
-      </div>
-    </div>
+     <style type="text/css">
+      #nom_can{
+        position:relative; 
+        up:20px;
+      }
+
+      #img_can{
+        float: left;
+        position: relative;
+        left: -10px;
+        height: 50px;
+        width: auto;
+      }
+    </style>
+  </div>
+</div>
 </body>
 </html>
