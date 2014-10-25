@@ -97,10 +97,9 @@
             FB.api('/me/events', function(response) {
                 if (response && !response.error) {
                   alert("works");
-              }
-            }
-          });
-        }
+                }
+            });
+          }
 
         Parse.FacebookUtils.logIn("publish_actions, user_events, email",{
           success: function(user) {
