@@ -13,24 +13,6 @@
 
 </head>
 <body>
-    <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-    <div
-      class="fb-login-button"
-      data-show-faces="false"
-      data-auto-logout-link="true"
-      onlogin="checkLoginState();"
-      data-width="400"
-      data-max-rows="1"
-      data-scope="publish_actions, email">
-    </div>
     <!-- ADD user_events -->
     <script src="//connect.soundcloud.com/sdk.js"></script>
     <script>
@@ -59,9 +41,6 @@
         });
       });
     </script>
-    <button class="big button" id="connect">Connect SC</button>
-    <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
-    <div id="track"></div>
 
     <script>
           var Parse = require('parse-1.2.8.js');
@@ -157,6 +136,25 @@
 <div id="wrapper">
   <p class="title_name">Jukebox</p>
   <div id="sidebar">
+    <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div
+      class="fb-login-button"
+      data-show-faces="false"
+      data-auto-logout-link="true"
+      onlogin="checkLoginState();"
+      data-width="400"
+      data-max-rows="1"
+      data-scope="publish_actions, email">
+    </div>
+    <br>
     <ul class="stack button-group">
       <button class="Home" id="buttongroup1">
         Home
@@ -176,8 +174,11 @@
       <br>
     </ul>
   </div>
-  <div id="content">content</div>
-  <p></p>
+  <div id="content">
+    <button class="big button" id="connect">Connect SC</button>
+    <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+    <div id="track"></div>
+  </div>
 </div>
 </body>
 </html>
