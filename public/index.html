@@ -59,7 +59,7 @@
     </script>
 
     <script>
-      $("#loadTracks2").live("click", function(){
+      $("#loadTr").live("click", function(){
         var track_url = 'http://api.soundcloud.com/playlists/56545453';
         SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
           console.log('oEmbed response: ' + oEmbed);
@@ -291,12 +291,12 @@
       <h1>Events</h1>
       <ul id="events">
         <li>
-        <h3>Event: Pre-Hackathon Workshop at ITESM Monterrey</h3>
-        <input type="button" id="loadTracks" class="button big" value="Load Playlist" />
+        <p>Event: </p> <h3>Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
+        <input type="button" id="loadTr" class="button big" value="Load Playlist" />
         </li>
         <li>
-        <h3>Event: Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
-        <input type="button" id="loadTracks2" class="button big" value="Load Playlist" />
+        <p>Event: </p> <h3>Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
+        <input type="button" id="loadTracks" class="button big" value="Load Playlist" />
         </li>
       </ul>
       <div id="track"></div>
