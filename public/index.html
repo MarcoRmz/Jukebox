@@ -12,7 +12,7 @@
     <!-- Lobster font -->
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
-    <!--AppFramework plugin for sliding side menu-->
+    <!--AppFramework plugin for sliding side menu
     <script type="application/javascript" src="sidebar/js/jquery.event.move.js"></script>
     <script type="application/javascript" src="sidebar/js/jquery.event.swipe.js"></script>
     <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
@@ -25,7 +25,7 @@
 
           $.ui.launch();
         });
-    </script>
+    </script>-->
 </head>
 <body>
     <!-- ADD user_events -->
@@ -160,81 +160,29 @@
     <!--html y css-->
 
     <div id="wrapper">
-      <p class="title_name">Jukebox</p>
-
-      <!--Left Side Menu Navigation bar -->
-      <nav id="sidebar">
-        <ul class="list">
-          <li id="opciones"><a href="#page1" style="text-align: center;"><span class="icon-remote"></span><p style="text-align: center;">Home</p></a></li>
-          <li id="opciones"><a href="#page2" style="text-align: center;"><span class="icon-music"></span><p style="text-align: center;">Now Playing</p></a></li>
-          <li id="opciones"><a href="#page3" style="text-align: center;"><span class="icon-cast"></span><p style="text-align: center;">Queue</p></a></li>
-          <li id="opciones"><a href="#page4" style="text-align: center;"><span class="icon-cast"></span><p style="text-align: center;">Search</p></a></li>
-          <br>
-          <div id="fb-root">
-          </div>
-          <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));</script>
-
-          <div
-          class="fb-login-button"
-          data-show-faces="false"
-          data-auto-logout-link="true"
-          onlogin="checkLoginState();"
-          data-width="400"
-          data-max-rows="1"
-          data-scope="publish_actions, email, user_events">
-          </div>
-      </ul>
-    </nav>
-  </div>
-
-    <div id="content">
-    <!--Main View Pages-->
-      <div class="panel" title="Home" id="page1" data-footer="none" selected="true">
-          <header>
-              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
-          </header>
-          <div id="page">
-            <h1>Home</h1>
-          </div>
-      </div>
-      
-      <div class="panel" title="Now Playing" id="page2" data-footer="none" selected="true">
-          <header>
-              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
-          </header>
-          <div id="page">
-            <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
-            <ul id="results">
-
-            </ul>
-            <div id="track"></div>
-          </div>
-      </div>
-
-      <div class="panel" title="Queue" id="page3" data-footer="none" selected="true">
-          <header>
-              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
-          </header>
-          <div id="page">
-            <h1>Queue</h1>
-          </div>
-      </div>
-
-      <div class="panel" title="Search" id="page4" data-footer="none" selected="true">
-          <header>
-              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
-          </header>
-          <div id="page">
-            <h1>Search</h1>
-          </div>
-      </div>
+    <p class="title_name">Jukebox</p>
     </div>
-  </div>
+      <!--Left Side Menu Navigation bar-->
+    <div id="page_full">
+      <div id="fb-root">
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      </div>
+
+    <div
+      class="fb-login-button"
+      data-show-faces="false"
+      data-auto-logout-link="true"
+      onlogin="checkLoginState();"
+      data-width="400"
+      data-max-rows="1"
+      data-scope="publish_actions, email, user_events">
+    </div>
+    </div>
 </body>
 </html>
