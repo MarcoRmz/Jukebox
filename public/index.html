@@ -41,6 +41,7 @@
     SC.connect(function() {
       SC.get('/me', function(me) { 
         console.log('Hello, ' + me.username);
+        loadEventsAPI();
       });
     });
     </script>
@@ -81,7 +82,6 @@
             if (response.status === 'connected') {
               // Logged into your app and Facebook.
               
-              loadEventsAPI();
           } else if (response.status === 'not_authorized') {
               // The person is logged into Facebook, but not your app.
               document.getElementById('status').innerHTML = 'Please log ' +
@@ -131,9 +131,8 @@
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me/events/attending', function(response) {
                 if (response && !response.error) {
-                  console.log(event.name);
-                  console.log("hi");
-                  $('#events').append($('<li></li>').html(event.name));
+                  console.log(response.event.name);
+                  $('#events').append($('<li></li>').html(response.event.name));
                 }
             });
           }
