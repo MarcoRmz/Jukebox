@@ -78,7 +78,7 @@ body {
     width: 100%;
 }
 
-#loadTracks{
+button{
     box-shadow: none;
     background: black;
     border: 3px;
@@ -88,7 +88,6 @@ body {
     padding-right: 20px;
     text-align: center;
 }
-
 
 
 
