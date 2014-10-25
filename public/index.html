@@ -18,7 +18,17 @@
           js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1556411531239729&version=v2.1";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState();"></div>
+
+    <div
+      class="fb-login-button"
+      data-show-faces="false"
+      data-auto-logout-link="true"
+      onlogin="checkLoginState();"
+      data-width="200"
+      data-max-rows="1"
+      data-scope="publish_actions">
+    </div>
+    
     <script>
           var Parse = require('parse-1.2.8.js');
           // This is called with the results from from FB.getLoginStatus().
@@ -99,8 +109,8 @@
           }
         });
     </script>
-    <!--
-    <script type="text/javascript" src="cordova.js"></script> -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
