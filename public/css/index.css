@@ -78,6 +78,17 @@ body {
     width: 100%;
 }
 
+#loadTracks{
+    box-shadow: none;
+    background: black;
+    border: 3px;
+    color: white;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
 
 
 
