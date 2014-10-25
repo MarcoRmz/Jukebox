@@ -31,9 +31,10 @@
     </script>
     <script>
       $("#loadTracks").live("click", function(){
-        SC.get("/tracks", {limit: 1}, function(tracks){
-          var track = tracks[0];
-          SC.oEmbed(track.uri, document.getElementById("track"));
+        SC.get('/playlists/56490285', function(playlist) {
+          for (var i = 0; i < playlist.tracks.length; i++) {
+            console.log(playlist.tracks[i].length);
+          }
         });
       });
     </script>
