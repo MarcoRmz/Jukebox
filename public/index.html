@@ -43,15 +43,11 @@
     // initiate auth popup
     SC.connect(function() {
       SC.get('/me', function(me) { 
-        alert('Hello, ' + me.username); 
+        console.log('Hello, ' + me.username);
       });
     });
     </script>
     <script>
-      SC.stream("/tracks/293", function(sound){
-        sound.play();
-      });
-
       $("#loadTracks").live("click", function(){
         SC.get("/tracks", {limit: 1}, function(tracks){
           var track = tracks[0];
@@ -59,7 +55,6 @@
         });
       });
     </script>
-    <button class="big button" id="connect">Connect SC</button>
     <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
     <div id="track"></div>
 
