@@ -50,26 +50,30 @@ body {
 }
 
 #wrapper{
-    height: 50%;
+    height: 100px;
     background: #373B44;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
+}
+
+.title_name{
+    height: 0px; 
+    margin-top: 0px;
 }
 
 #fb-root{
     background: #BD5532;
+    position: relative;
 }
 
 #sidebar{
     float: left;
-    height: 100%;
+    height: 100;
     width: 100px;
+    margin-top: 2px;
 }
 
 #content{
-    margin-left: 100px;
+    margin-left: 150px;
+    margin-top: 100px;
     height: 100%; 
 }
 
@@ -79,6 +83,8 @@ body {
     height: 100%;
     background: #BD5532;
     text-align: center;
+    padding: 20px;
+    text-size: 32px;
     transition: width: .5s;
     -webkit-transition: width .5s;
     -moz-transition: width .5s;
@@ -89,4 +95,5 @@ body {
     box-shadow: none;
     border: 1px;
     background: transparent;
+    padding-top: 20px;
 }
