@@ -101,9 +101,12 @@
           SC.get('/playlists/56545453', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
             SC.get('/playlists/56545453', function(playlist) {
+            var res = "";
             for (var i = 0; i < playlist.tracks.length; i++) {
-              $('#results').append($('<li></li>').html(playlist.tracks[i].title));
-              }
+              res += "<li>" + playlist.tracks[i].title + "</li>";
+              //$('#results').append($('<li></li>').html(playlist.tracks[i].title));
+            }
+            $('#results').append(res);
             });
           });
         });
