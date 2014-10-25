@@ -59,6 +59,39 @@
       });
     </script>
 
+    <script>
+      $("#track1").live("click", function(){
+        var tracks = [71199929];
+        SC.connect(function() {
+          SC.get('/me/playlists', { limit: 1 }, function(playlist) {
+            SC.put(playlist.uri, { playlist: { tracks: tracks } });
+          });
+        });
+      }
+    </script>
+
+    <script>
+      $("#track2").live("click", function(){
+        var tracks = [5774716];
+        SC.connect(function() {
+          SC.get('/me/playlists', { limit: 1 }, function(playlist) {
+            SC.put(playlist.uri, { playlist: { tracks: tracks } });
+          });
+        });
+      }
+    </script>
+
+    <script>
+      $("#track3").live("click", function(){
+        var tracks = [19504262];
+        SC.connect(function() {
+          SC.get('/me/playlists', { limit: 1 }, function(playlist) {
+            SC.put(playlist.uri, { playlist: { tracks: tracks } });
+          });
+        });
+      }
+    </script>
+
     <!--<script>
       $("#searchTracks").live("click", function(){
         // find tracks
@@ -198,16 +231,16 @@
 
         <div class="agregarMusica">
             <br>
-            <button class="cancion1">
+            <button class="cancion1" id="track1">
               <p>Michael Buble: Haven't Met You Yet</p>
             </button>
             <br>
-            <button class="cancion1">
+            <button class="cancion1" id="track2">
                <img src="http://tmp3gratis.com/imagenes.php?q=maroon-5-sunday-morning" style="width= 50px; height= 50px;"></img><p>Maroon 5: Sunday Morning</p>
             </button>
             <br>
-            <button class="cancion1">
-             <p>Maroon 5: Sugar</p>
+            <button class="cancion1" id="track3">
+             <p>Maroon 5: Moves Like Jagger</p>
             </button>
         </div>
 
