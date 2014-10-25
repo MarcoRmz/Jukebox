@@ -295,13 +295,19 @@
         Search SoundCloud:
         <input type="search" name="searchTracks">
         </form>
+
+        <button id="searcher">
+          HARDCODE!
+        </button>
+
         <script type="text/javascript">
-          if(document.getElementsByTagName["searchTracks"] == "musica"){
-            $(document).ready(function(){
-              $('cancion1').toggleClass('agregarMusica')
-            })
-          }
+        $(document).ready(function(){
+          $('searcher').click(function(){
+            $('agregarMusica').toggleClass('cancion1');
+          });
+        });
         </script>
+
         <div class="agregarMusica">
             <button class="cancion1">
               Cancion 1
@@ -310,7 +316,7 @@
 
         <style type="text/css">
           .cancion1 {
-            font-size: 120%;
+            font-size: 32px;
             color: red;
           }
         </style>
