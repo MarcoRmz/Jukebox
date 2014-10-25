@@ -93,13 +93,12 @@
           // successful.  See statusChangeCallback() for when this call is made.
           function loadEventsAPI() {
             console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-              "/{event-id}",
-              function (response) {
+            alert("works");
+            FB.api('/me/events', function(response) {
                 if (response && !response.error) {
-                  
-                }
+                  alert("works");
               }
+            }
           });
         }
 
