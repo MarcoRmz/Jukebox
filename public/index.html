@@ -66,9 +66,13 @@
       $("#track1").live("click", function(){
         var tracks = [71199929];
         SC.connect(function() {
-          SC.get('/me/playlists', { limit: 1 }, function(playlist) {
+          SC.get('/me/playlists/56490285', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
-            $('#results').append($('<li></li>').html(tracks.title));
+            SC.get('/playlists/56490285', function(playlist) {
+            for (var i = 0; i < playlist.tracks.length; i++) {
+              $('#results').append($('<li></li>').html(playlist.tracks[i].title));
+              }
+            });
           });
         });
       }
@@ -78,9 +82,13 @@
       $("#track2").live("click", function(){
         var tracks = [5774716];
         SC.connect(function() {
-          SC.get('/me/playlists', { limit: 1 }, function(playlist) {
+          SC.get('/me/playlists/56490285', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
-            $('#results').append($('<li></li>').html(tracks.title));
+            SC.get('/playlists/56490285', function(playlist) {
+            for (var i = 0; i < playlist.tracks.length; i++) {
+              $('#results').append($('<li></li>').html(playlist.tracks[i].title));
+              }
+            });
           });
         });
       }
@@ -90,9 +98,13 @@
       $("#track3").live("click", function(){
         var tracks = [19504262];
         SC.connect(function() {
-          SC.get('/me/playlists', { limit: 1 }, function(playlist) {
+          SC.get('/me/playlists/56545453', { limit: 1 }, function(playlist) {
             SC.put(playlist.uri, { playlist: { tracks: tracks } });
-            $('#results').append($('<li></li>').html(tracks.title));
+            SC.get('/playlists/56545453', function(playlist) {
+            for (var i = 0; i < playlist.tracks.length; i++) {
+              $('#results').append($('<li></li>').html(playlist.tracks[i].title));
+              }
+            });
           });
         });
       }
