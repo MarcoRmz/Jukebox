@@ -173,9 +173,20 @@
     </ul>
   </div>
   <div id="content">
-    <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
-    <div id="track"></div>
+    <div class="page_1">
+      <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+      <div id="track"></div>
+    </div>
+    <div class="page_2">
+      Prueba
+    </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('Home').click(function(){
+    ('#content').toggle("page_2");
+  });
+</script>
 </body>
 </html>
