@@ -4,13 +4,28 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Jukebox</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+    <script type="text/javascript" charset="utf-8" src="js/ui.min.js"></script>
     <!-- Inicializacion de Soundcloud -->
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 
     <!-- Lobster font -->
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
+    <!--AppFramework plugin for sliding side menu-->
+    <script type="application/javascript" src="sidebar/js/jquery.event.move.js"></script>
+    <script type="application/javascript" src="sidebar/js/jquery.event.swipe.js"></script>
+    <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+    <script type="application/javascript" src="sidebar/js/swipe.js"></script>
+    <script>       
+      $.ui.autoLaunch = false;
+      $.ui.animateHeaders = false;
+
+        $(document).ready(function(){
+          $.ui.setSideMenuWidth('170px');
+          $.ui.launch();
+        });
+    </script>
 </head>
 <body>
     <!-- ADD user_events -->
@@ -146,24 +161,14 @@
 
     <div id="wrapper">
       <p class="title_name">Jukebox</p>
+
+      <!--Left Side Menu Navigation bar -->
       <nav id="sidebar">
-        <br>
-        <ul class="stack button-group">
-          <a class="Home" id="buttongroup1" href="#main">
-            Home
-          </a>
-          <br>
-          <a class="Play-button" id="buttongroup1" href="#track">
-            Play
-          </a>
-          <br>
-          <a class="Queue" id="buttongroup1" href="#content/#page_2">
-            Queue
-          </a>
-          <br>
-          <a class="Browse" id="buttongroup1" href="page">
-            Browse
-          </a>
+        <ul class="list">
+          <li><a href="#page1" style="text-align: center;"><span class="icon-remote"></span><p style="text-align: center;">Home</p></a></li>
+          <li><a href="#page2" style="text-align: center;"><span class="icon-music"></span><p style="text-align: center;">Now Playing</p></a></li>
+          <li><a href="#page3" style="text-align: center;"><span class="icon-cast"></span><p style="text-align: center;">Queue</p></a></li>
+          <li><a href="#page4" style="text-align: center;"><span class="icon-cast"></span><p style="text-align: center;">Search</p></a></li>
           <br>
           <div id="fb-root">
           </div>
@@ -189,16 +194,45 @@
   </div>
 
     <div id="content">
-      <div id="track"></div>
-      <div id="page">
-        <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
-        <ul id="results">
-
-        </ul>
-        <div id="track"></div>
+    <!--Main View Pages-->
+      <div class="panel" title="Home" id="page1" data-footer="none" selected="true">
+          <header>
+              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
+          </header>
+          <div id="page">
+            <h1>Home</h1>
+          </div>
       </div>
-      <div id="page_2">
-        Prueba
+      
+      <div class="panel" title="Now Playing" id="page2" data-footer="none" selected="true">
+          <header>
+              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
+          </header>
+          <div id="page">
+            <input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+            <ul id="results">
+
+            </ul>
+            <div id="track"></div>
+          </div>
+      </div>
+
+      <div class="panel" title="Queue" id="page3" data-footer="none" selected="true">
+          <header>
+              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
+          </header>
+          <div id="page">
+            <h1>Queue</h1>
+          </div>
+      </div>
+
+      <div class="panel" title="Search" id="page4" data-footer="none" selected="true">
+          <header>
+              <a id="menubadge" onclick='$.ui.toggleSideMenu()' class='menuButton' style="float:left !important"></a>
+          </header>
+          <div id="page">
+            <h1>Search</h1>
+          </div>
       </div>
     </div>
   </div>
