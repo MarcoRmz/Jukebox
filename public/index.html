@@ -78,7 +78,7 @@
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
           // Logged into your app and Facebook.
-          loadEventsAPI();
+          //loadEventsAPI();
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.
           document.getElementById('status').innerHTML = 'Please log ' +
@@ -140,10 +140,10 @@
       // successful.  See statusChangeCallback() for when this call is made.
       function loadEventsAPI() {
         console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me/event', function(response) {
+        FB.api('/me/events', function(response) {
           console.log('Successful login for: ' + response.name);
           document.getElementById('events').innerHTML =
-            'Event: ' + response.name;
+            'Event: ' + response.name + ' ID: ' + response.id;
         });
       }
     </script>
@@ -275,9 +275,15 @@
     <div id="content">
       <h1>Events</h1>
       <ul id="events">
-
+        <li>
+        <h3>Event: Pre-Hackathon Workshop at ITESM Monterrey</h3>
+        <input type="button" id="loadTracks" class="button big" value="Load Playlist" />
+        </li>
+        <li>
+        <h3>Event: Facebook Mexico Hackathon @ ITESM Monterrey 2014</h3>
+        <input type="button" id="loadTracks" class="button big" value="Load Playlist" />
+        </li>
       </ul>
-      <input type="button" id="loadTracks" class="button big" value="Load Playlist" />
       <div id="track"></div>
       <ul id="results">
 
